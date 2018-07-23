@@ -43,7 +43,7 @@ pipeline {
             println tag
             
             env.TAG = tag
-            sh 'docker run -tid -P --name test repo.vndirect.com.vn/protrade/${tag}:latest'
+            sh 'docker run -tid -P --name test repo.vndirect.com.vn/protrade/${TAG}:latest'
         }
         sleep 5
       }
