@@ -18,7 +18,7 @@ pipeline {
       steps {
         echo 'Building tag'
         tag = sh (
-            script: 'git describe --tags,
+            script: 'git describe --tags',
             returnStdout: true
         ).trim()
         echo '${tag}'
