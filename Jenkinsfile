@@ -42,7 +42,6 @@ pipeline {
             ).trim()
             println tag
             sh 'echo ${tag}'
-            }
         }
         sleep 5
       }
