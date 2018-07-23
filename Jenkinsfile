@@ -17,11 +17,13 @@ pipeline {
 		}
       steps {
         echo 'Building tag'
-        tag = sh (
-            script: 'git describe --tags',
-            returnStdout: true
-        ).trim()
-        echo '${tag}'
+        script {
+            tag = sh (
+                script: 'git describe --tags',
+                returnStdout: true
+            ).trim()
+            echo '${tag}'
+        }
         sleep 5
       }
 	}
