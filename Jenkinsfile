@@ -11,20 +11,22 @@ pipeline {
 	
 	
   stages {
-    # build tag to prod
+    /* build tag to prod*/
     stage('Deploy to production') {
 		when {
 			buildingTag()
 		}
-          steps {
-            echo 'Building tag'
-          }
+      steps {
+        echo 'Building tag'
+        sleep 5
+      }
 	}
 	
-	# build commit to UAT
+	/* build commit to UAT */
 	stage('Deploy to uat') {
       steps {
         echo 'Building commit'
+        sleep 5
       }
 	}
   }
