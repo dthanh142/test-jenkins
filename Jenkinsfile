@@ -17,6 +17,7 @@ pipeline {
 		}
       steps {
         echo 'Building tag'
+        sh(returnStdout: true, script: "git tag --contains").trim()
         sleep 5
       }
 	}
