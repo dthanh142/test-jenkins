@@ -18,7 +18,7 @@ pipeline {
       steps {
         echo 'Building tag'
         script {
-            tag = sh (
+            def tag = sh (
                 script: 'git describe --tags',
                 returnStdout: true
             ).trim()
@@ -33,6 +33,13 @@ pipeline {
 	stage('Deploy to uat') {
       steps {
         echo 'Building commit'
+        script {
+            def tag = sh (
+                script: 'git describe --tags',
+                returnStdout: true
+            ).trim()
+        }
+        echo '${tag}'
         sleep 5
       }
 	}
