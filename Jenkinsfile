@@ -17,7 +17,8 @@ pipeline {
 		}
       steps {
         echo 'Building tag'
-        def tag = sh(script: 'git describe --tags $(git rev-list --tags --max-count=1)', returnStdout: true).trim()
+        def tag = sh 'git describe --tags'
+        echo '$tag'
         sleep 5
       }
 	}
