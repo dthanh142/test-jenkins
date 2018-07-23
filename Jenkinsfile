@@ -18,7 +18,7 @@ pipeline {
       steps {
         echo 'Building tag'
         script {
-            with(tag = sh(
+            withEmv(tag = sh(
                 script: 'git describe --tags',
                 returnStdout: true
             ).trim()){
