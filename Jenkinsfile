@@ -22,8 +22,8 @@ pipeline {
                 script: 'git describe --tags',
                 returnStdout: true
             ).trim()
+            sh 'docker run -tid -P --name test repo.vndirect.com.vn/protrade/${tag}:latest'
         }
-        sh 'docker run -tid -P --name test repo.vndirect.com.vn/protrade/${tag}:latest'
         sleep 5
       }
 	}
