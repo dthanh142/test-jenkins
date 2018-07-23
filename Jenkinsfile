@@ -18,8 +18,8 @@ pipeline {
       steps {
         echo 'Building tag'
         script {
-            withEmv(tag = sh(
-                script: 'git describe --tags',
+            withEnv(tag = sh(
+                script: 'git branch',
                 returnStdout: true
             ).trim()){
                 println tag
