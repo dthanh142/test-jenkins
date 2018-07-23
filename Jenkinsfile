@@ -35,6 +35,15 @@ pipeline {
 	stage('Deploy to uat') {
       steps {
         echo 'Building commit'
+        script {
+            withEnv(tag = sh(
+                script: 'git branch',
+                returnStdout: true
+            ).trim()){
+                println tag
+                sh 'echo ${tag}'
+            }
+        }
         sleep 5
       }
 	}
