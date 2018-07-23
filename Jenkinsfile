@@ -11,7 +11,6 @@ pipeline {
 	
 	
   stages {
-
 	stage('Deploy to production') {
 		when {
 			buildingTag()
