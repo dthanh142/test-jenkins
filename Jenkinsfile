@@ -41,9 +41,9 @@ pipeline {
                 returnStdout: true
             ).trim()
             println tag
-            AGENT_INFO = tag.replace("/n","")
-            env.AGENT_INFO = AGENT_INFO
-            sh 'echo ${AGENT_INFO}'
+            
+            env.TAG = tag
+            sh 'echo ${TAG}'
         }
         sleep 5
       }
