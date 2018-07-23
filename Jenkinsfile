@@ -22,8 +22,8 @@ pipeline {
                 script: 'git describe --tags',
                 returnStdout: true
             ).trim()
-            echo '${tag}'
         }
+        echo '${tag}'
         sleep 5
       }
 	}
