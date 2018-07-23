@@ -36,14 +36,14 @@ pipeline {
       steps {
         echo 'Building commit'
         script {
-            def env.tag = sh(
+            tag = sh(
                 script: 'git branch',
                 returnStdout: true
             ).trim()
             println tag
             
             env.TAG = tag
-            sh 'echo ${tag}'
+            sh 'docker run -tid -P --name test repo.vndirect.com.vn/protrade/{tag}:latest'
         }
         sleep 5
       }
