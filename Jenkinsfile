@@ -3,10 +3,6 @@ pipeline {
   environment {
     jname = 'test'
 	port = '9000'
-	tag = sh(
-                script: 'git describe --tags',
-                returnStdout: true
-            ).trim()
   }
 
   options {
@@ -22,13 +18,14 @@ pipeline {
       steps {
         echo 'Building tag'
         script {
-            tag = sh(
+            with(tag = sh(
                 script: 'git describe --tags',
                 returnStdout: true
-            ).trim()
-            println tag
+            ).trim()){
+                println tag
+                sh 'echo ${tag}'
+            }
         }
-        sh 'echo ${tag}'
         sleep 5
       }
 	}
