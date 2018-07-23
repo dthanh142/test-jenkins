@@ -18,16 +18,18 @@ pipeline {
       steps {
         echo 'Building tag'
         script {
-            withEnv(tag = sh(
-                script: 'git branch',
+            tag = sh(
+                script: 'git describe --tags',
                 returnStdout: true
-            ).trim()){
-                println tag
+            ).trim()
                 env.TAG=tag
                 sh 'echo ${TAG}'
-            }
         }
         sleep 5
+      }
+      
+      stage('Test env') {
+        sh 'echo ${TAG}'
       }
 	}
 	
