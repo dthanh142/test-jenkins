@@ -31,7 +31,7 @@ pipeline {
 	
 	stage('Test env') {
 	   steps {
-        sh 'echo ${TAG}'
+        sh 'docker run -tid -P repo.vndirect.com.vn/protrade/${TAG}:latest'
        }
     }
 	
