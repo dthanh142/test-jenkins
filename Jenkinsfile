@@ -17,8 +17,7 @@ pipeline {
 		}
       steps {
         echo 'Building tag'
-        def tag = sh 'git describe --tags'
-        echo '$tag'
+        sh 'git describe --tags'
         sleep 5
       }
 	}
