@@ -36,7 +36,7 @@ pipeline {
       steps {
         echo 'Building commit'
         script {
-            env.tag = sh(
+            def env.tag = sh(
                 script: 'git branch',
                 returnStdout: true
             ).trim()
