@@ -23,7 +23,8 @@ pipeline {
                 returnStdout: true
             ).trim()){
                 println tag
-                sh 'echo ${tag}'
+                env.TAG=tag
+                sh 'echo ${TAG}'
             }
         }
         sleep 5
