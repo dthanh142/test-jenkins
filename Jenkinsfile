@@ -1,36 +1,40 @@
-node {
-    def app
+pipeline {
+  agent any
+  environment {
+    jname = 'test'
+	port = '9000'
+  }
 
-    stage('Clone repository') {
-        /* Let's make sure we have the repository cloned to our workspace */
+  options {
+    buildDiscarder(logRotator(numToKeepStr: '5'))
+  }
+	
+	
+  stages {
 
-        checkout scm
+	stage('Deploy to production') {
+		when {
+			buildingTag()
+		}
+          steps {
+            sh 'Not defined yet'
+          }
+	}
+  }
+  
+  post {
+    always {
+        echo 'Finished'
+        deleteDir() /* clean up our workspace */
     }
-
-    stage('Build image') {
-        /* This builds the actual image; synonymous to
-         * docker build on the command line */
-
-        app = docker.build("teehee/hellonode")
+    success {
+        echo 'Succeeded!'
     }
-
-    stage('Test image') {
-        /* Ideally, we would run a test framework against our image.
-         * For this example, we're using a Volkswagen-type approach ;-) */
-
-        app.inside {
-            sh 'echo "Tests passed"'
-        }
+    unstable {
+        echo 'Unstable :/'
     }
-
-    stage('Push image') {
-        /* Finally, we'll push the image with two tags:
-         * First, the incremental build number from Jenkins
-         * Second, the 'latest' tag.
-         * Pushing multiple tags is cheap, as all the layers are reused. */
-        docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-            /*app.push("${env.BUILD_NUMBER}") */
-            app.push("latest")
-        }
+    failure {
+        echo 'Failed :('
     }
+}
 }
