@@ -3,6 +3,10 @@ pipeline {
   environment {
     jname = 'test'
 	port = '9000'
+	tag = sh(
+                script: 'git describe --tags',
+                returnStdout: true
+            ).trim()
   }
 
   options {
@@ -24,7 +28,7 @@ pipeline {
             ).trim()
             println tag
         }
-        sh 'docker run -tid -P --name test repo.vndirect.com.vn/protrade/${tag}:latest'
+        sh 'echo ${tag}'
         sleep 5
       }
 	}
