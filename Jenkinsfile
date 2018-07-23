@@ -11,13 +11,21 @@ pipeline {
 	
 	
   stages {
-	stage('Deploy to production') {
+    # build tag to prod
+    stage('Deploy to production') {
 		when {
 			buildingTag()
 		}
           steps {
-            sh 'Not defined yet'
+            echo 'Building tag'
           }
+	}
+	
+	# build commit to UAT
+	stage('Deploy to uat') {
+      steps {
+        echo 'Building commit'
+      }
 	}
   }
   
