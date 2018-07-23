@@ -18,7 +18,7 @@ pipeline {
       steps {
         echo 'Building tag'
         script {
-            def tag = sh (
+            tag = sh(
                 script: 'git describe --tags',
                 returnStdout: true
             ).trim()
