@@ -9,7 +9,6 @@ pipeline {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
 	
-	
   stages {
     /* build tag to prod*/
     stage('Deploy to production') {
