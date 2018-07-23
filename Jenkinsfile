@@ -39,7 +39,7 @@ pipeline {
             tag = sh(
                 script: 'git branch',
                 returnStdout: true
-            ).trim())
+            ).trim()
             println tag
             sh 'echo ${tag}'
             }
