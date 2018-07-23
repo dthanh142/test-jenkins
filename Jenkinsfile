@@ -36,14 +36,14 @@ pipeline {
       steps {
         echo 'Building commit'
         script {
-            tag = sh(
+            env.tag = sh(
                 script: 'git branch',
                 returnStdout: true
             ).trim()
             println tag
             
             env.TAG = tag
-            sh 'echo ${TAG}'
+            sh 'echo ${tag}'
         }
         sleep 5
       }
