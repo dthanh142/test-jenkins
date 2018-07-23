@@ -27,11 +27,13 @@ pipeline {
         }
         sleep 5
       }
-      
-      stage('Test env') {
-        sh 'echo ${TAG}'
-      }
 	}
+	
+	stage('Test env') {
+	   steps {
+        sh 'echo ${TAG}'
+       }
+    }
 	
 	
 	/* build commit to UAT */
