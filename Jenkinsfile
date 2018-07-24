@@ -1,1 +1,4 @@
-load '/home/jenkins/Jenkinsfile'
+pipeline { 
+    agent any
+    load '/home/jenkins/Jenkinsfile'
+}
