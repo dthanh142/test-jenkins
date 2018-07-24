@@ -29,9 +29,13 @@ pipeline {
       }
 	}
 	
-	stage('Test env') {
+	stage('Approval') {
 	   steps {
-        input 'deploy ?'
+        timeout(60) {  
+            script {
+                approvalMap = input id: 'test', message: 'Hello', ok: 'Proceed?', parameters: [choice(choices: 'apple\npear\norange', description: 'Select a fruit for this build', name: 'FRUIT'), string(defaultValue: '', description: '', name: 'myparam')], submitter: 'user1,user2,group1', submitterParameter: 'APPROVER'
+            }
+        }
        }
     }
 	
@@ -47,10 +51,10 @@ pipeline {
             ).trim()
             
             env.TAG = tag
-            sh 'docker run -tid -P --name test repo.vndirect.com.vn/protrade/${TAG}:latest'
+            println tag
         }
         
-        sleep 5
+        sleep 3
       }
 	}
   }
