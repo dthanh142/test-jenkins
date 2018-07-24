@@ -31,7 +31,7 @@ pipeline {
 	
 	stage('Test env') {
 	   steps {
-        sh 'docker run -tid -P repo.vndirect.com.vn/protrade/${TAG}:latest'
+        input 'deploy ?'
        }
     }
 	
@@ -45,11 +45,11 @@ pipeline {
                 script: 'git branch',
                 returnStdout: true
             ).trim()
-            input 'deploy ?'
             
             env.TAG = tag
             sh 'docker run -tid -P --name test repo.vndirect.com.vn/protrade/${TAG}:latest'
         }
+        
         sleep 5
       }
 	}
