@@ -29,7 +29,29 @@ pipeline {
        }
     }
   
-  
+    
+    /* Dockerfile */
+    stage('Dockerfile') {
+       steps {
+         script {
+            def a = load "/var/lib/jenkins/groovy_scripts/aaa.groovy"
+            a.dockerfile()
+         }
+       }
+    }
+    
+    
+    /* build docker image */
+    stage('build docker image') {
+       steps {
+         script {
+            def a = load "/var/lib/jenkins/groovy_scripts/aaa.groovy"
+            a.build_docker_image()
+         }
+       }
+    }
+    
+    
     /* Send approval email*/
     stage('Approval') {
 	   steps {
