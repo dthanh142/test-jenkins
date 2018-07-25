@@ -1,6 +1,8 @@
 def a() {
-    return load "aaa.groovy"
+    a = load "aaa.groovy"
+    return a
 }
+
 pipeline {
   agent any
   environment {
