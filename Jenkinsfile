@@ -34,7 +34,7 @@ pipeline {
         timeout(60) {
             script {
                 mail to: 'thanh.phamduc@vndirect.com.vn', 
-                        from 'jenkins@vndirect.com.vn',
+                        from: 'jenkins@vndirect.com.vn',
                         subject: "Please approve ${jname} project to production", mimeType: 'text/html',
                         body: """Please <a href="${env.JOB_URL}${env.BUILD_ID}/input/">approve me</a>!"""
                 input message: "Approve ${jname} to production"
