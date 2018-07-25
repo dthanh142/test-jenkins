@@ -3,7 +3,7 @@ pipeline {
   environment {
     jname = 'test'
 	port = '9000'
-	a = load("aaa.groovy")
+	a = load "aaa.groovy"
   }
   
   options {
