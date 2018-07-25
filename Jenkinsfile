@@ -1,4 +1,4 @@
-def a = load "aaa.groovy"
+def a = load("aaa.groovy")
 pipeline {
   agent any
   environment {
