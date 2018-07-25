@@ -1,16 +1,13 @@
-def a() {
-    a = load "aaa.groovy"
-    return a
-}
-
 pipeline {
   agent any
   environment {
     jname = 'test'
 	port = '9000'
-	
   }
   
+  define {
+    def a = load "aaa.groovy"
+  }
   options {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
