@@ -1,3 +1,4 @@
+def a = load "aaa.groovy"
 pipeline {
   agent any
   environment {
@@ -10,7 +11,7 @@ pipeline {
   }
 	
   stages {
-    def a = load "aaa.groovy"
+    
     /* build tag to prod*/
     stage('Deploy to production') {
 		when {
