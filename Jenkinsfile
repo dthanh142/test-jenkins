@@ -18,6 +18,17 @@ pipeline {
       }
 	}
   
+    
+    /* Sonar runner */
+    stage('Sonar check') {
+       steps {
+         script {
+            def a = load "/var/lib/jenkins/groovy_scripts/aaa.groovy"
+            a.sonar()
+         }
+       }
+    }
+  
   
     /* Send approval email*/
     stage('Approval') {
