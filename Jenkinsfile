@@ -11,34 +11,18 @@ pipeline {
 	
   stages {
   
-    /* build tag to prod*/
-    stage('Deploy to production') {
-		when {
-			buildingTag()
-		}
+  
+    /* build commit to UAT */
+	stage('Deploy to uat') {
       steps {
-        echo 'Building tag'
-        script {
-            tag = sh(
-                script: 'git describe --tags',
-                returnStdout: true
-            ).trim()
-                env.TAG=tag
-                sh 'echo ${TAG}'
-        }
-        sleep 5
+        def a = load "aaa.groovy"
+        a.build_uat()
       }
 	}
-	
-	stage('Test load groovy function from outside') {
-	    steps {
-	        script {
-	            def a = load "aaa.groovy"
-                a.test()
-            }
-	    }
-	}
-	stage('Approval') {
+  
+  
+    /* Send approval email*/
+    stage('Approval') {
 	   steps {
         script {
             def a = load "aaa.groovy"
@@ -46,24 +30,18 @@ pipeline {
         }
        }
     }
-	
-	
-	/* build commit to UAT */
-	stage('Deploy to uat') {
+    
+    
+    /* Build tag to prod*/
+    stage('Deploy to production') {
+      when {
+    	buildingTag()
+      }
       steps {
-        echo 'Building commit'
         script {
-            tag = sh(
-                script: 'git branch',
-                returnStdout: true
-            ).trim()
-            
-            env.TAG = tag
-            println tag
-            a.test()
+	        def a = load "aaa.groovy"
+            a.build_tag_to_prod()
         }
-        
-        sleep 3
       }
 	}
   }
