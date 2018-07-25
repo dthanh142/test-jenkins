@@ -4,7 +4,9 @@ pipeline {
     jname = 'test'
 	port = '9000'
   }
-
+  
+  def a = load "aaa.groovy"
+  
   options {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
@@ -31,10 +33,9 @@ pipeline {
 	
 	stage('Test load groovy function from outside') {
 	    steps {
-	        script {
-                def a = load "aaa.groovy"
+	        
                 a.test()
-            }
+    
 	    }
 	}
 	stage('Approval') {
