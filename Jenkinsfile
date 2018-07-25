@@ -1,8 +1,5 @@
 pipeline {
   agent any
-  environment {
-	port = '9000'
-  }
   
   options {
     buildDiscarder(logRotator(numToKeepStr: '5'))
