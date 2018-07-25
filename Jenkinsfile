@@ -10,9 +10,7 @@ pipeline {
   }
 	
   stages {
-    script {
-	            def a = load "aaa.groovy"
-    }
+  
     /* build tag to prod*/
     stage('Deploy to production') {
 		when {
@@ -42,15 +40,9 @@ pipeline {
 	}
 	stage('Approval') {
 	   steps {
-        timeout(60) {
-            script {
-                mail to: 'thanh.phamduc@vndirect.com.vn', 
-                        from: 'jenkins-noreply@vndirect.com.vn',
-                        subject: "Please approve ${jname} project to production", mimeType: 'text/html',
-                        body: """Please <a href="${env.JOB_URL}${env.BUILD_ID}/input/">approve me</a>!"""
-                input message: "Approve ${jname} to production"
-                /*approvalMap = input id: 'test', message: 'Hello', ok: 'Proceed?', parameters: [choice(choices: 'uat\nstag\nprod', description: 'Select a environment for this build', name: 'ENV'), string(defaultValue: '', description: '', name: 'myparam')], submitter: 'thanh.phamduc,user2,group1', submitterParameter: 'APPROVER'*/
-            }
+        script {
+            def a = load "aaa.groovy"
+            a.approval()
         }
        }
     }
