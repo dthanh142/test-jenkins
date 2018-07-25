@@ -33,9 +33,9 @@ pipeline {
 	
 	stage('Test load groovy function from outside') {
 	    steps {
-	        
+	        script {
                 a.test()
-    
+            }
 	    }
 	}
 	stage('Approval') {
