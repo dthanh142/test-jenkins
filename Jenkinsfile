@@ -29,6 +29,14 @@ pipeline {
       }
 	}
 	
+	stage('Test load groovy function from outside') {
+	    steps {
+	        script {
+                def a = load "aaa.groovy"
+                a.test()
+            }
+	    }
+	}
 	stage('Approval') {
 	   steps {
         timeout(60) {
