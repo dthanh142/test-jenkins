@@ -15,8 +15,10 @@ pipeline {
     /* build commit to UAT */
 	stage('Deploy to uat') {
       steps {
-        def a = load "aaa.groovy"
-        a.build_uat()
+        script {
+            def a = load "aaa.groovy"
+            a.build_uat()
+        }
       }
 	}
   
@@ -24,10 +26,10 @@ pipeline {
     /* Send approval email*/
     stage('Approval') {
 	   steps {
-        script {
+         script {
             def a = load "aaa.groovy"
             a.approval()
-        }
+         }
        }
     }
     
