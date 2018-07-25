@@ -5,9 +5,6 @@ pipeline {
 	port = '9000'
   }
   
-  define {
-    def a = load "aaa.groovy"
-  }
   options {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
@@ -36,6 +33,7 @@ pipeline {
 	stage('Test load groovy function from outside') {
 	    steps {
 	        script {
+	            def a = load "aaa.groovy"
                 a.test()
             }
 	    }
@@ -68,6 +66,7 @@ pipeline {
             
             env.TAG = tag
             println tag
+            a.test()
         }
         
         sleep 3
