@@ -12,7 +12,7 @@ pipeline {
 	stage('Deploy to uat') {
       steps {
         script {
-            def a = load "aaa.groovy"
+            def a = load "/var/lib/jenkins/groovy_scripts/aaa.groovy"
             a.build_uat()
         }
       }
@@ -23,7 +23,7 @@ pipeline {
     stage('Approval') {
 	   steps {
          script {
-            def a = load "aaa.groovy"
+            def a = load "/var/lib/jenkins/groovy_scripts/aaa.groovy"
             a.approval()
          }
        }
@@ -37,7 +37,7 @@ pipeline {
       }
       steps {
         script {
-	        def a = load "aaa.groovy"
+	        def a = load "/var/lib/jenkins/groovy_scripts/aaa.groovy"
             a.build_tag_to_prod()
         }
       }
