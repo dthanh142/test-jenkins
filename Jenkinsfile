@@ -1,7 +1,6 @@
 pipeline {
   agent any
   environment {
-    jname = 'test'
 	port = '9000'
   }
   
