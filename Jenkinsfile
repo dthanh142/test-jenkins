@@ -5,13 +5,12 @@ pipeline {
 	port = '9000'
   }
   
-  def a = load "aaa.groovy"
-  
   options {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
 	
   stages {
+    def a = load "aaa.groovy"
     /* build tag to prod*/
     stage('Deploy to production') {
 		when {
