@@ -10,7 +10,9 @@ pipeline {
   }
 	
   stages {
-    
+    script {
+	            def a = load "aaa.groovy"
+    }
     /* build tag to prod*/
     stage('Deploy to production') {
 		when {
