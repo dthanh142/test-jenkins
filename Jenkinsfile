@@ -1,9 +1,9 @@
-def a = load("aaa.groovy")
 pipeline {
   agent any
   environment {
     jname = 'test'
 	port = '9000'
+	a = load("aaa.groovy")
   }
   
   options {
