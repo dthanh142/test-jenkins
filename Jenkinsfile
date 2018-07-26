@@ -15,7 +15,6 @@ pipeline {
 	stage('Deploy to uat') {
       steps {
         script {
-            //def a = load "/var/lib/jenkins/groovy_scripts/aaa.groovy"
             a.build_uat()
         }
       }
@@ -26,7 +25,6 @@ pipeline {
     stage('Sonar check') {
        steps {
          script {
-            //def a = load "/var/lib/jenkins/groovy_scripts/aaa.groovy"
             a.sonar()
          }
        }
@@ -37,8 +35,17 @@ pipeline {
     stage('Dockerfile') {
        steps {
          script {
-            //def a = load "/var/lib/jenkins/groovy_scripts/aaa.groovy"
             a.dockerfile()
+         }
+       }
+    }
+    
+    
+    /* Send approval email*/
+    stage('Approval') {
+	   steps {
+         script {
+            a.approval()
          }
        }
     }
@@ -48,7 +55,6 @@ pipeline {
     stage('build docker image') {
        steps {
          script {
-            //def a = load "/var/lib/jenkins/groovy_scripts/aaa.groovy"
             a.build_docker_image()
          }
        }
@@ -59,7 +65,6 @@ pipeline {
     stage('Approval') {
 	   steps {
          script {
-            //def a = load "/var/lib/jenkins/groovy_scripts/aaa.groovy"
             a.approval()
          }
        }
@@ -73,7 +78,6 @@ pipeline {
       }
       steps {
         script {
-	        //def a = load "/var/lib/jenkins/groovy_scripts/aaa.groovy"
             a.build_tag_to_prod()
         }
       }
