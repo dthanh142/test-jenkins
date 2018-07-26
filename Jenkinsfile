@@ -61,16 +61,6 @@ pipeline {
     }
     
     
-    /* Send approval email*/
-    stage('Approval') {
-	   steps {
-         script {
-            a.approval()
-         }
-       }
-    }
-    
-    
     /* Build tag to prod*/
     stage('Deploy to production') {
       when {
