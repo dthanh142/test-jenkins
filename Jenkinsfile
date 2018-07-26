@@ -2,5 +2,5 @@
 
 stage('Demo') {
     echo 'test'
-    sayHello.approval()
+    vnds.approval()
 }
