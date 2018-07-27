@@ -3,5 +3,5 @@
 stage('Demo') {
     echo 'test'
     vnds.approval()
-    test
+    test([param1: "thanh", param2: "test"])
 }
