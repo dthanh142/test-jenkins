@@ -1,2 +1,3 @@
 template: python
 name: test-jenkins
+approval: true
