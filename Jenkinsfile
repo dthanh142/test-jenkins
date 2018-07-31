@@ -6,6 +6,6 @@ node {
     
     checkout scm
     
-    stdPipeline().execute()
+    new stdPipeline().execute()
     
 }
