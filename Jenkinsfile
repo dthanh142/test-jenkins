@@ -1,10 +1,10 @@
 @Library('vnds-lib') _
-import com.vndirect.*
+import com.vndirect.stdPipeline
 node {
     
     checkout scm
     
-    stdPipeline().execute()
+    execute()
     // woloxCi('.woloxci/config.yml');
     
 }
