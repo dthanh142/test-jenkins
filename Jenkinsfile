@@ -1,11 +1,11 @@
 @Library('vnds-lib') _
-import com.vndirect.*
+import com.vndirect.*;
 // new stdPipeline().execute()
 
 node {
     
     checkout scm
     
-    stdPipeline()
+    stdPipeline().execute()
     
 }
