@@ -4,7 +4,7 @@ node {
     
     checkout scm
     
-    new stdPipeline().execute()
+    stdPipeline().execute()
     // woloxCi('.woloxci/config.yml');
     
 }
