@@ -5,7 +5,8 @@ import com.vndirect.*
         projectName = "Project1"
         serverDomain = "Project1 Server Domain"
     }
-
+node {
     pl = new pipeline()
     pl.build()
     pl.test(thanh)
+}
