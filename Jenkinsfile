@@ -1,10 +1,5 @@
-@Library('vnds-lib') _
-import com.vndirect.*
-//node {
-    
-   // checkout scm
-    
-    new stdPipeline().execute()
-    // woloxCi('.woloxci/config.yml');
-    
-//}
+@Library("mylib") _
+    standardPipeline {
+        projectName = "Project1"
+        serverDomain = "Project1 Server Domain"
+    }
