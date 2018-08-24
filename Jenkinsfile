@@ -15,10 +15,10 @@ node {
     
     // this stage is skipped due to the when expression, so nothing is printed
     	stage('three') {
-		echo "three: ${cp.template}"
+		echo "three: ${cp}"
 	  	standardPipeline {
-			projectName = "${cp.name}"
-			serverDomain = "${cp.template}"
+			projectName = ${cp.template}
+			serverDomain = ${cp.approval}
 	  	}
       	}
 }
