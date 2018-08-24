@@ -14,9 +14,17 @@ pipeline {
         echo "${myVar}" // prints 'hotness'
       }
     }
+    stage('Parse Yaml'){
+      steps {
+        echo 'Loading pipeline definition'
+        Yaml parser = new Yaml()
+        static Map configParser = parser.load(new File(pwd() + '/devops.yaml').text)
+        print configParser
+      }
+	  }
     stage('two') {
       steps {
-        echo "${myVar}" // prints 'hotness'
+        echo "${configParser}" // prints 'hotness'
       }
     }
     // this stage is skipped due to the when expression, so nothing is printed
@@ -25,7 +33,7 @@ pipeline {
         expression { myVar != 'hotness' }
       }
       steps {
-        echo "three: ${myVar}"
+        echo "three: ${configParser}"
       }
     }
   }
