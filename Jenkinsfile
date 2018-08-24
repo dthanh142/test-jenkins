@@ -1,18 +1,11 @@
-@Library("lib3") _
-  
-pipeline {
-  agent any
-    stages {
-        stage('Install') {
-          steps {
-            script {
-              faas.install {
-                install_path = '/tmp'
-                platform = 'linux'
-                version = '0.5.1'
-              }
-            }
-          }
-        }
-    }
+@Library("lib2") _
+
+echo 'Loading pipeline definition'
+        	Yaml parser = new Yaml()
+  	  	    Map configParser = parser.load(new File(pwd() + '/devops.yaml').text)
+			print configParser
+
+standardPipeline {
+        projectName = ${configParser.name}
+        serverDomain = ${configParser.template}
 }
