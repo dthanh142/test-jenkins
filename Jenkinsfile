@@ -1,8 +1,8 @@
-@Library("lib2") _
+@Library("wolox") _
 
 // stdPipeline()
 node {
 
   checkout scm
-  testWolox()
+  woloxCi('./devops.yaml')
 }
