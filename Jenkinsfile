@@ -24,10 +24,10 @@ pipeline {
     // this stage is skipped due to the when expression, so nothing is printed
     stage('three') {
       when {
-        expression { myVar != 'hotness' }
+        expression { cp.template != 'java' }
       }
       steps {
-        echo "three: ${cp}"
+        echo "three: ${cp.template}"
       }
     }
   }
