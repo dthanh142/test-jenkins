@@ -1,3 +1,5 @@
 template: python
+  framework: flask
+  
 name: test-jenkins
 approval: true
