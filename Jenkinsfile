@@ -1,6 +1,7 @@
 @Library("lib3") _
   
 pipeline {
+  agent any
     stages {
         stage('Install') {
           steps {
