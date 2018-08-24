@@ -1,4 +1,8 @@
 @Library("lib2") _
 
 // stdPipeline()
-test-wolox()
+node {
+
+  checkout scm
+  test-wolox()
+}
