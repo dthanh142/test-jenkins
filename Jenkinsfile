@@ -12,7 +12,7 @@ node {
 	
 	
 	standardPipeline {
-		projectName = ${configParser.name}
-		serverDomain = ${configParser.template}
+		projectName = configParser.name
+		serverDomain = configParser.template
 	}
 }
