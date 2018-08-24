@@ -4,5 +4,5 @@
 node {
 
   checkout scm
-  test-wolox()
+  testWolox()
 }
