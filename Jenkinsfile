@@ -30,5 +30,11 @@ pipeline {
         echo "three: ${cp.template}"
       }
     }
+	  
+	  
+	standardPipeline {
+		projectName = cp.name
+		serverDomain = cp.template
+	}
   }
 }
