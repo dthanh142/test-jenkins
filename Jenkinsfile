@@ -15,9 +15,6 @@ node {
     
     // this stage is skipped due to the when expression, so nothing is printed
     	stage('three') {
-     		when {
-			expression { cp.template != 'java' }
-      		}
 		echo "three: ${cp.template}"
 	  	standardPipeline {
 			projectName = cp.name
