@@ -1,8 +1,14 @@
-@Library("mylib") _
-import com.vndirect.*
+@Library("lib3") _
     
-    standardPipeline {
-        projectName = "Project1"
-        serverDomain = "Project1 Server Domain"
+stages {
+    stage('Install') {
+      steps {
+        script {
+          faas.install {
+            install_path = '/tmp'
+            platform = 'linux'
+            version = '0.5.1'
+          }
+        }
+      }
     }
-    
