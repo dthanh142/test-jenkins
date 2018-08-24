@@ -28,9 +28,11 @@ pipeline {
       }
       steps {
         echo "three: ${cp.template}"
-	 standardPipeline {
+	script {
+	  standardPipeline {
 		projectName = cp.name
 		serverDomain = cp.template
+	  }
 	}
       }
     }
