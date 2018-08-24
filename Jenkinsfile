@@ -17,11 +17,13 @@ pipeline {
     stage('Parse Yaml'){
       steps {
         echo 'Loading pipeline definition'
-        Yaml parser = new Yaml()
-        static Map configParser = parser.load(new File(pwd() + '/devops.yaml').text)
-        print configParser
+	      script {
+		Yaml parser = new Yaml()
+		Map configParser = parser.load(new File(pwd() + '/devops.yaml').text)
+		print configParser
+	      }
       }
-	  }
+    }
     stage('two') {
       steps {
         echo "${configParser}" // prints 'hotness'
