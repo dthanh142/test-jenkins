@@ -2,5 +2,5 @@ template:
   language: python
   framework: flask
   
-name: test-jenkins
+projectName: test-jenkins
 approval: true
