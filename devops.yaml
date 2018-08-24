@@ -1,4 +1,5 @@
-template: python
+template:
+  language: python
   framework: flask
   
 name: test-jenkins
