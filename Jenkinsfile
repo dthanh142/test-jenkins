@@ -1,3 +1,4 @@
 @Library("lib2") _
 
-stdPipeline()
+// stdPipeline()
+test-wolox()
