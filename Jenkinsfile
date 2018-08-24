@@ -1,4 +1,5 @@
 @Library("lib2") _
+import org.yaml.snakeyaml.Yaml
 
 echo 'Loading pipeline definition'
         	Yaml parser = new Yaml()
