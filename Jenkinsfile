@@ -7,7 +7,7 @@ node {
 	}
 	echo 'Loading pipeline definition'
         Yaml parser = new Yaml()
-	Map configParser = parser.load(new File(pwd() + '/devops.yaml').text)
+	static Map configParser = parser.load(new File(pwd() + '/devops.yaml').text)
 	print configParser
 	
 	
