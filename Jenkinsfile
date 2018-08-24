@@ -17,8 +17,8 @@ node {
     	stage('three') {
 		echo "three: ${cp.template}"
 	  	standardPipeline {
-			projectName = cp.name
-			serverDomain = cp.template
+			projectName = "${cp.name}"
+			serverDomain = "${cp.template}"
 	  	}
       	}
 }
