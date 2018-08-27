@@ -4,3 +4,9 @@ template:
   
 projectName: test-jenkins
 approval: true
+
+build:
+  - npm install
+  - npm run clean
+  - npm run build
+  
