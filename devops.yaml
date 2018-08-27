@@ -1,6 +1,7 @@
 template:
-  language: python
-  framework: flask
+  language: nodejs
+  version: 6
+  framework: npm
   
 projectName: test-jenkins
 approval: true
