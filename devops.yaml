@@ -7,7 +7,5 @@ approval: true
 
 build:
   - npm install
-  - npm run clean
-  - npm run build
   - touch test.txt
   
