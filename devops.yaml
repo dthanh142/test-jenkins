@@ -11,5 +11,5 @@ build:
   - touch test.txt
   
 Docker:
-  - port: 9090
-  - runCommand: node main.js
+  port: 9090
+  runCommand: node main.js
