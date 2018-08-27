@@ -10,3 +10,6 @@ build:
   - npm install
   - touch test.txt
   
+Docker:
+  - port: 9090
+  - runCommand: node main.js
