@@ -12,4 +12,7 @@ build:
   
 Docker:
   port: 9090
+  dependencies:
+    - pushstate-server
+    - pm2
   runCommand: node main.js
