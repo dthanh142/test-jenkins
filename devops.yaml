@@ -1,5 +1,5 @@
 template:
-  language: NODE
+  language: NODEY
   version: 6
   framework: npm
   
