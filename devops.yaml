@@ -1,5 +1,5 @@
 template:
-  language: NODE
+  language: nodejs
   version: 6
   framework: npm
   
@@ -14,3 +14,6 @@ Docker:
   port: 9090
   dependencies: pushstate-server pm2
   runCommand: node main.js
+  configFiles:
+    - /opt/test-jenkins/config
+    - /opt/test-jenkins/key
