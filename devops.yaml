@@ -16,4 +16,4 @@ Docker:
   runCommand: node main.js
   configFiles:
     - /opt/test-jenkins/config
-    - /opt/test-jenkins/key
+
