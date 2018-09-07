@@ -6,9 +6,9 @@ template:
 projectName: test-jenkins
 approval: true
 
-#build:
-#  - npm install
-#  - touch test.txt
+build:
+  - npm install
+  - touch test.txt
   
 Docker:
   port: 9090
