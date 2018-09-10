@@ -11,6 +11,7 @@ build:
   - touch test.txt
   
 Docker:
+  dockerfile: ./Dockerfile
   port: 9090
   dependencies: pushstate-server pm2
   runCommand: node main.js
