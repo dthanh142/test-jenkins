@@ -12,6 +12,7 @@ build:
   
 Docker:
   dockerfile: ./Dockerfile
+  dockerCompose: ./docker-compose.yml
   port: 9090
   dependencies: pushstate-server pm2
   runCommand: node main.js
