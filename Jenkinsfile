@@ -1,9 +1,10 @@
 @Library("lib2") _
 
-// stdPipeline()
 node {
-
-  checkout scm
-  // woloxCi('./devops.yaml')
-  testWolox()
+	properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '5')), gitLabConnection('gitlab')])
+  stage("Checkout code") {
+    checkout scm
+  }
+  
+  stdPipeline()
 }
